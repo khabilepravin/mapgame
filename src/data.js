@@ -1,0 +1,2 @@
+const CountriesData = '[{"countryName":"India","facts":[{}]},{"countryName":"United States","facts":[{}]},{"countryName":"United Kingdom","facts":[{}]},{"countryName":"Germany","facts":[{}]},{"countryName":"Russia","facts":[{}]},{"countryName":"Australia","facts":[{}]},{"countryName":"New Zeland","facts":[{}]},{"countryName":"Japan","facts":[{}]},{"countryName":"Canada","facts":[{}]},{"countryName":"Brazil","facts":[{}]},{"countryName":"Mexico","facts":[{}]},{"countryName":"Austria","facts":[{}]}]';
+export default CountriesData;
