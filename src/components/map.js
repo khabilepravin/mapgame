@@ -16,7 +16,7 @@ const Map = (props) => {
       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
       mapsApiKey="YOUR_KEY_HERE"
       rootProps={{ "data-testid": "1" }}
-      options={{ "domain":"IN", defaultColor:'#0000FF' }}
+      options={{ "domain":"IN", defaultColor:'#0000FF',"enableRegionInteractivity":false }}
     />
   );
 };
