@@ -16,9 +16,13 @@ import { faForward, faCheck } from "@fortawesome/free-solid-svg-icons";
 import CountriesData from "../data";
 import Map from "./map";
 
+const filterMapVisibleCountriesOnly = (countriesArray) => {
+  return countriesArray.filter(country => country.isVisibleOnMap === true);
+};
+
 const MapTest = () => {
   const history = useHistory();
-  const totalCountriesInATest = 5;
+  const totalCountriesInATest = 20;
   const [buttonText, setButtonText] = useState("Next");
   const [buttonClass, setButtonClass] = useState("primary");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,8 +31,9 @@ const MapTest = () => {
   const moveToNextCountry = (event) => {
     event.preventDefault();
     const countries = JSON.parse(CountriesData);
-    const randomIndex = getRandomIndex(countries.length);
-    setCurrentCountry(countries[randomIndex].countryName);
+    const visibileOnMapCountries = filterMapVisibleCountriesOnly(countries);
+    const randomIndex = getRandomIndex(visibileOnMapCountries.length);
+    setCurrentCountry(visibileOnMapCountries[randomIndex].countryName);
 
     setCurrentIndex(currentIndex + 1);
 
