@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Button,
   Container,
@@ -16,6 +17,7 @@ import CountriesData from "../data";
 import Map from "./map";
 
 const MapTest = () => {
+  const history = useHistory();
   const totalCountriesInATest = 5;
   const [buttonText, setButtonText] = useState("Next");
   const [buttonClass, setButtonClass] = useState("primary");
@@ -27,6 +29,28 @@ const MapTest = () => {
     const countries = JSON.parse(CountriesData);
     const randomIndex = getRandomIndex(countries.length);
     setCurrentCountry(countries[randomIndex].countryName);
+
+    setCurrentIndex(currentIndex + 1);
+
+    if (currentIndex === totalCountriesInATest - 2) {
+      setButtonText("Done");
+      setButtonClass("success");
+    }
+
+    if (currentIndex === totalCountriesInATest - 1) {
+    //   let finalResult = results.slice();
+    //   // Push the last item before redirecting
+    //   let isCorrect = verifyIfCorrect(
+    //     data[currentIndex].wordData.word,
+    //     userAnswer
+    //   );
+    //   finalResult.push({
+    //     word: data[currentIndex].wordData.word,
+    //     userEnteredAnswer: userAnswer,
+    //     isCorrect: isCorrect,
+      //});
+      history.push("/result");
+    }
   };
 
   const getRandomIndex = (max) =>{
