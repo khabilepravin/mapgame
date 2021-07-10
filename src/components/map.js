@@ -13,7 +13,7 @@ const Map = React.memo((props) => {
       ]}
       // Note: you will need to get a mapsApiKey for your project.
       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-      mapsApiKey="YOUR_KEY_HERE"
+      mapsApiKey={process.env.REACT_APP_mapApiKey}
       rootProps={{ "data-testid": "1" }}
       options={{ "domain":"IN", defaultColor:'#0000FF',"enableRegionInteractivity":false }}
     />
