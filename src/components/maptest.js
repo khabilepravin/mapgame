@@ -268,6 +268,7 @@ const MapTest = () => {
                 <option>France</option>
                 <option>Burundi</option>
                 <option>Tanzania</option>
+                <option>Burkina Faso</option>
               </datalist>
             </Col>
           </Row>

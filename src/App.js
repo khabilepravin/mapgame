@@ -22,7 +22,7 @@ function App() {
         <body>
           <Switch>
             <Route path="/" exact component={MapTest} />
-            <Route path="/result" component={Result} />
+            <Route path="/result" component={ResultMap} />
           </Switch>
         </body>
       </div>
