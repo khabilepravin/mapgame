@@ -35,12 +35,14 @@ const ResultMap = React.memo((props) => {
         <br/>
         <Row>
           <Col>
-              Legend: <Badge color="danger">
-                  <FontAwesomeIcon icon={faTimes}/>
-                </Badge> { } <Badge color="success">
-                  <FontAwesomeIcon icon={faCheck}/>
+              <h4>Legend</h4>
+              <Badge color="danger">
+                  <h4><FontAwesomeIcon icon={faTimes}/></h4>
+                </Badge> <Badge color="success">
+                  <h4><FontAwesomeIcon icon={faCheck}/></h4>
                 </Badge>
-          </Col>
+              </Col> 
+              
         </Row>
       </Container>
     );
