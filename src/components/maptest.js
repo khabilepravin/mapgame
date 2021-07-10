@@ -43,9 +43,13 @@ const MapTest = () => {
   const [userAnswer, setUserAnswer] = useState("");
   const [results, setResults] = useState([]);
 
+  const handleUserAnswer = (event) =>{
+    setUserAnswer(event.target.value);
+  };
+
   const moveToNextCountry = (event) => {
     event.preventDefault();
-
+    setUserAnswer("");
     let isCorrect = verifyIfCorrect(
       countries[currentIndex].countryName,
       userAnswer
@@ -54,7 +58,7 @@ const MapTest = () => {
     setResults((results) => [
       ...results,
       {
-        word: countries[currentIndex].countryName,
+        countryName: countries[currentIndex].countryName,
         userEnteredAnswer: userAnswer,
         isCorrect: isCorrect,
       },
@@ -94,6 +98,8 @@ const MapTest = () => {
                 autoFocus={true}
                 className="input-lg"
                 list="countriesList"
+                value={userAnswer}
+                onChange={handleUserAnswer}
               />
               <datalist id="countriesList">
                 <option>India</option>

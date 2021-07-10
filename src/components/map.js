@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Chart from "react-google-charts";
-import {CountriesData} from "../data";
 
 const Map = React.memo((props) => {
   return (

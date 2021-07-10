@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import MapTest from "./components/maptest";
 import Result from "./components/result";
+import ResultMap from "./components/resultmap";
 
 function App() {
   return (
