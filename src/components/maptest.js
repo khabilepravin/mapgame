@@ -72,7 +72,17 @@ const MapTest = () => {
     }
 
     if (currentIndex === totalCountriesInATest - 1) {
-      history.push("/result", results);
+      let finalResult = results.slice();
+      let isCorrect = verifyIfCorrect(
+        countries[currentIndex].countryName,
+        userAnswer
+      );
+      finalResult.push({
+        countryName: countries[currentIndex].countryName,
+        userEnteredAnswer: userAnswer,
+        isCorrect: isCorrect,
+      });
+      history.push("/result", finalResult);
     }
   };
 
