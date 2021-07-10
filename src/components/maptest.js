@@ -100,7 +100,7 @@ const MapTest = () => {
             <Col className="d-flex justify-content-center">
               <Input
                 type="text"
-                placeholder="Start Entering Country Name"
+                placeholder="Enter Highlighted Country Name"
                 spellCheck="false"
                 autoComplete="off"
                 autoCorrect="off"
@@ -282,6 +282,7 @@ const MapTest = () => {
               </datalist>
             </Col>
           </Row>
+          <br/>
           <Row>
             <Col>
               <Progress value={currentIndex + 1} max={totalCountriesInATest}>
@@ -293,7 +294,7 @@ const MapTest = () => {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col className="d-flex justify-content-center">
               <Button color={buttonClass} type="submit">
                 <FontAwesomeIcon
                   icon={buttonText == "Done" ? faCheck : faForward}
