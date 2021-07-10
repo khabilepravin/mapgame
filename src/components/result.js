@@ -1,7 +1,7 @@
 import React from "react";
 
-const Result = () => {
-    return <h2>Results</h2>;
+const Result = (props) => {
+    return <h2>{JSON.stringify(props.location.state)}</h2>;
 }
 
 export default Result;

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Chart from "react-google-charts";
 import {CountriesData} from "../data";
 
-const Map = (props) => {
+const Map = React.memo((props) => {
   return (
     <Chart
       width={"600px"}
@@ -19,6 +19,6 @@ const Map = (props) => {
       options={{ "domain":"IN", defaultColor:'#0000FF',"enableRegionInteractivity":false }}
     />
   );
-};
+});
 
 export default Map;
