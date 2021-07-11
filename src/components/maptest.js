@@ -96,6 +96,7 @@ const MapTest = () => {
               <Map currentCountry={countries[currentIndex].countryName} />
             </Col>
           </Row>
+          <br/>
           <Row>
             <Col className="d-flex justify-content-center">
               <Input
