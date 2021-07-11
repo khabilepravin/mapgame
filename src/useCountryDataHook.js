@@ -7,8 +7,12 @@ export const useCountryData = (numberRandomRecords) => {
     const countriesFiltered = countriesArray.filter(country => country.isVisibleOnMap === true);
 
     let recordIndexes = [];
-    for (let i = 0; i < numberRandomRecords; i++) {
-      recordIndexes.push(getRandomInt(countriesFiltered.length));
+    for (let i = 0; i < numberRandomRecords;) {
+      let newRandomIndex = getRandomInt(countriesFiltered.length);
+      if(recordIndexes.includes(newRandomIndex) === false){
+        recordIndexes.push(newRandomIndex);
+        i++;
+      }
     }
   
     React.useEffect(() => {
