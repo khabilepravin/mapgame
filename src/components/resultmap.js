@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Chart from "react-google-charts";
-import { Container, Row, Col, Table, Badge, Button } from "reactstrap";
+import { Container, Row, Col, Table, Badge, Button, Alert } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router";
 import {
@@ -25,34 +25,27 @@ const ResultMap = React.memo((props) => {
 
     return (
       <Container>
-        <br/>
-        <Row>
-          <Col className="d-flex justify-content-right">
-            <Button color="primary" onClick={handleNewGameClick}>
-              <FontAwesomeIcon icon={faGamepad} /> New Game
-            </Button>
-          </Col>
-          <Col className="d-flex justify-content-center">
-            <h6>Click or tap to see country names</h6>
-          </Col>
-          <Col className="d-flex justify-content-end">
-            <Badge color="danger">
-              <h6>
-                <FontAwesomeIcon icon={faTimes} />
-              </h6>
-            </Badge>
-            <Badge color="success">
-              <h6>
-                <FontAwesomeIcon icon={faCheck} />
-              </h6>
-            </Badge>
-          </Col>
-          <Col>
-          </Col>
-        </Row>
-        <Row>
-         
-        </Row>
+        <br />
+        <Alert color="primary">Mouseover or tap on the map to see country names</Alert>
+        <Badge color="danger">
+          <h6>
+            <FontAwesomeIcon icon={faTimes} />
+          </h6>
+        </Badge>
+        <Badge color="success">
+          <h6>
+            <FontAwesomeIcon icon={faCheck} />
+          </h6>
+        </Badge>
+        <br />
+        <br />
+        <Button
+          color="primary"
+          onClick={handleNewGameClick}
+          className="d-flex justify-content-end"
+        >
+          <FontAwesomeIcon icon={faGamepad} /> New Game
+        </Button>
         <Row>
           <Col className="d-flex justify-content-center">
             <Chart
@@ -71,8 +64,6 @@ const ResultMap = React.memo((props) => {
             />
           </Col>
         </Row>
-        
-        
       </Container>
     );
   } else {
