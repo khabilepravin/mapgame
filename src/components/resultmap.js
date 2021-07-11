@@ -26,7 +26,9 @@ const ResultMap = React.memo((props) => {
     return (
       <Container>
         <br />
-        <Alert color="primary">Mouseover or tap on the map to see country names</Alert>
+        <Alert color="primary">
+          Mouseover or tap on the map to see country names
+        </Alert>
         <Badge color="danger">
           <h6>
             <FontAwesomeIcon icon={faTimes} />
@@ -38,14 +40,12 @@ const ResultMap = React.memo((props) => {
           </h6>
         </Badge>
         <br />
-        
-        <Button
-          color="primary"
-          onClick={handleNewGameClick}>
+
+        <Button color="primary" onClick={handleNewGameClick}>
           <FontAwesomeIcon icon={faGamepad} /> New Game
         </Button>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <Row>
           <Col className="d-flex justify-content-center">
             <Chart
@@ -57,7 +57,7 @@ const ResultMap = React.memo((props) => {
                 domain: "IN",
                 defaultColor: "#0000FF",
                 enableRegionInteractivity: true,
-                colorAxis: { colors: ["green", "red"] },
+                colorAxis: { colors: ["red", "green"] },
               }}
             />
           </Col>
