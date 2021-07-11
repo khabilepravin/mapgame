@@ -5,7 +5,6 @@ import { Col, Row } from "reactstrap";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import MapTest from "./components/maptest";
-import Result from "./components/result";
 import ResultMap from "./components/resultmap";
 
 function App() {
@@ -19,12 +18,10 @@ function App() {
             </Col>
           </Row>
         </header>
-        <body>
-          <Switch>
-            <Route path="/" exact component={MapTest} />
-            <Route path="/result" component={ResultMap} />
-          </Switch>
-        </body>
+        <Switch>
+          <Route path="/" exact component={MapTest} />
+          <Route path="/result" component={ResultMap} />
+        </Switch>
       </div>
     </Router>
   );
