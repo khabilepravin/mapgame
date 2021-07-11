@@ -57,7 +57,7 @@ const ResultMap = React.memo((props) => {
                 domain: "IN",
                 defaultColor: "#0000FF",
                 enableRegionInteractivity: true,
-                colorAxis: { colors: ["red", "green"] },
+                colorAxis: { colors: ["green", "red"] },
               }}
             />
           </Col>
