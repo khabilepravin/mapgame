@@ -20,7 +20,7 @@ const ResultMap = React.memo((props) => {
     let chartData = [["Country", "Guessed"]];
 
     props.location.state.map((result) => {
-      chartData.push([result.countryName, result.isCorrect ? 0 : 1]);
+      chartData.push([result.countryName, result.isCorrect ? 1 : 0]);
     });
 
     return (
@@ -38,19 +38,17 @@ const ResultMap = React.memo((props) => {
           </h6>
         </Badge>
         <br />
-        <br />
+        
         <Button
           color="primary"
-          onClick={handleNewGameClick}
-          className="d-flex justify-content-end"
-        >
+          onClick={handleNewGameClick}>
           <FontAwesomeIcon icon={faGamepad} /> New Game
         </Button>
+        <br/>
+        <br/>
         <Row>
           <Col className="d-flex justify-content-center">
             <Chart
-              width={"800px"}
-              height={"600px"}
               chartType="GeoChart"
               data={chartData}
               mapsApiKey={process.env.REACT_APP_mapApiKey}
@@ -59,7 +57,7 @@ const ResultMap = React.memo((props) => {
                 domain: "IN",
                 defaultColor: "#0000FF",
                 enableRegionInteractivity: true,
-                colorAxis: { colors: ["green", "red"] },
+                colorAxis: { colors: ["red", "green"] },
               }}
             />
           </Col>

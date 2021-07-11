@@ -4,8 +4,6 @@ import Chart from "react-google-charts";
 const Map = React.memo((props) => {
   return (
     <Chart
-      width={"600px"}
-      height={"400px"}
       chartType="GeoChart"
       data={[
         ["Country"],
