@@ -16,6 +16,7 @@ import { faForward, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 import { useCountryData } from "../useCountryDataHook";
 import Map from "./map";
+import ResultMap from "./resultmap";
 
 const filterMapVisibleCountriesOnly = (countriesArray) => {
   return countriesArray.filter((country) => country.isVisibleOnMap === true);
@@ -36,13 +37,14 @@ export const verifyIfCorrect = (country, userAnswer) => {
 const MapTest = () => {
   const history = useHistory();
   const totalCountriesInATest = 10;
-  const [countries] = useCountryData(totalCountriesInATest);
+  const [countries, setCountries] = useCountryData(totalCountriesInATest);
+  const [attempts, setAttempts] =  useState(1);
   const [buttonText, setButtonText] = useState("Next");
   const [buttonClass, setButtonClass] = useState("primary");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
   const [results, setResults] = useState([]);
-
+  
   const handleUserAnswer = (event) =>{
     setUserAnswer(event.target.value);
   };
@@ -74,19 +76,34 @@ const MapTest = () => {
     if (currentIndex === totalCountriesInATest - 1) {
       let finalResult = results.slice();
       let isCorrect = verifyIfCorrect(
-        countries[currentIndex].countryName,
-        userAnswer
+        countries[currentIndex].countryName
       );
       finalResult.push({
         countryName: countries[currentIndex].countryName,
         userEnteredAnswer: userAnswer,
         isCorrect: isCorrect,
       });
-      history.push("/result", finalResult);
+      setResults(finalResult);
     }
   };
 
-  if (countries.length > 0) {
+  const resetForNewGame = () => {
+    setCurrentIndex(0);
+    setResults([]);
+    setAttempts((attempts+1));
+    setButtonClass("primary");
+    setButtonText("Next");
+  };
+
+  const handleNewGameClick = () => {
+    // setCurrentIndex(0);
+    // setResults([]);
+    // setAttempts((attempts+1));
+    //resetForNewGame();
+    window.location.reload();
+  };
+
+  if (countries.length > 0 && results.length < totalCountriesInATest) {
     return (
       <Form onSubmit={moveToNextCountry}>
         <Container>
@@ -307,7 +324,10 @@ const MapTest = () => {
         </Container>
       </Form>
     );
-  } else {
+  } else if(results.length === totalCountriesInATest) {
+    return <ResultMap results={results} handleNewGameClick={handleNewGameClick}/>
+  }
+  else{
     return <h2>Loading...</h2>;
   }
 };

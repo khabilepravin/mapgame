@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import Chart from "react-google-charts";
 import { Container, Row, Col, Table, Badge, Button, Alert } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useHistory } from "react-router";
+//import { useHistory } from "react-router";
 import {
   faTimes,
   faCheck,
   faGamepad,
-  faListAlt,
+  //faListAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 const ResultMap = React.memo((props) => {
-  const history = useHistory();
-  const handleNewGameClick = () => {
-    history.push("/");
-  };
+  //const history = useHistory();
+  // const handleNewGameClick = () => {
+  //   history.push("/");
+  // };
 
-  if (props.location.state) {
+  if (props.results) {
     let chartData = [["Country", "Guessed"]];
 
-    props.location.state.map((result) => {
+    props.results.map((result) => {
       chartData.push([result.countryName, result.isCorrect ? 1 : 0]);
     });
 
@@ -41,7 +41,7 @@ const ResultMap = React.memo((props) => {
         </Badge>
         <br />
 
-        <Button color="primary" onClick={handleNewGameClick}>
+        <Button color="primary" onClick={props.handleNewGameClick}>
           <FontAwesomeIcon icon={faGamepad} /> New Game
         </Button>
         <br />
